@@ -12,7 +12,7 @@ snepet is a cli tool for creating custom snippets for vscode for any language or
 
 ## **❓ How to use**
 
-- **Step Two 1️⃣ - Add new Snippet**
+- **Step One 1️⃣ - Add new Snippet**
 
   To add a new snippet run 👇
 
@@ -20,7 +20,7 @@ snepet is a cli tool for creating custom snippets for vscode for any language or
   snepet add
   ```
 
-- **Step Three 2️⃣ - Get all snippets**
+- **Step Two 2️⃣ - Get all snippets**
 
   To get all the custom snippets for a given type - _language_ run 👇
 
@@ -28,7 +28,7 @@ snepet is a cli tool for creating custom snippets for vscode for any language or
   snepet get --type <snippet-type>
   ```
 
-- **Step Four 3️⃣ - Delete a snepet**
+- **Step Three 3️⃣ - Delete a snepet**
 
   To delete a custom snippet, first run `snepet get` to get the snippets,then run 👇
 
@@ -46,15 +46,31 @@ snepet is a cli tool for creating custom snippets for vscode for any language or
 
 ## **Example**
 
-To create a javascript `helloworld` snippet
+To create a `javascript` sample snippet for the snippet 👇
 
-run 👇
+```js
+console.log("snepet is cool");
+```
+
+- run 👇 to create a new snippet
 
 ```bash
   snepet add
 ```
 
-<img src="images/Screenshot1.png">
+- set the type to `javascript`
+- set the name to `Cool Snippet`
+- set the prefix to `.hello`
+- set the description to `This is an example`
+- Press enter and write the code `console.log('snepet is cool')`
+
+<img src="images/ss1.png">
+<img src="images/ss4.png">
+<img src="images/ss2.png">
+
+- Now in vscode open a `javascript` file and start typing `.hello`. IT WORKS !!!
+
+<img src="images/ss3.png">
 
 ## **Supported Types**
 
