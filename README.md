@@ -64,13 +64,13 @@ console.log("snepet is cool");
 - set the description to `This is an example`
 - Press enter and write the code `console.log('snepet is cool')`
 
-<img src="images/ss1.png">
-<img src="images/ss4.png">
-<img src="images/ss2.png">
+<img src="https://raw.githubusercontent.com/maxy-mashar/snepet.js/HEAD/images/ss1.png">
+<img src="https://raw.githubusercontent.com/maxy-mashar/snepet.js/HEAD/images/ss4.png">
+<img src="https://raw.githubusercontent.com/maxy-mashar/snepet.js/HEAD/images/ss2.png">
 
 - Now in vscode open a `javascript` file and start typing `.hello`. IT WORKS !!!
 
-<img src="images/ss3.png">
+<img src="ihttps://raw.githubusercontent.com/maxy-mashar/snepet.js/HEAD/images/ss3.png">
 
 ## **Supported Types**
 

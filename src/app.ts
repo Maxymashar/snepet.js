@@ -8,7 +8,7 @@ import { loadSnippetFile } from "./commands/get";
 import { deleteSnippet } from "./commands/delete";
 
 program
-    .version("2.0.3")
+    .version("2.0.4")
     .description("snepet is a cli tool for creating custom vscode snippets for all supported languages");
 
 // The path command is for setting the path to the snippets folder
