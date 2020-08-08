@@ -70,7 +70,7 @@ console.log("snepet is cool");
 
 - Now in vscode open a `javascript` file and start typing `.hello`. IT WORKS !!!
 
-<img src="ihttps://raw.githubusercontent.com/maxy-mashar/snepet.js/HEAD/images/ss3.png">
+<img src="https://raw.githubusercontent.com/maxy-mashar/snepet.js/HEAD/images/ss3.png">
 
 ## **Supported Types**
 
