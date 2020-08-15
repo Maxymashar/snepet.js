@@ -2,9 +2,9 @@ import files from "../utils/files";
 import { prompt } from "inquirer";
 import chalk from "chalk";
 import { getPath } from "./path";
-import { join } from "path";
+import { join, resolve } from "path";
 import { readJson, writeJson } from "../utils/json-reader";
-import { existsSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 
 const questions = {
     "qSnippetType": {
@@ -33,19 +33,28 @@ const questions = {
 let snippet = {};
 
 
-export function addSnippet() {
-    getSnippetType(() => { getSnippetName(() => { getSnippetPrefix(() => { getSnippetDescription(() => { getSnippetBody(() => { addSnippetToFile() }) }) }) }) });
+export function addSnippet(path: string | null) {
+    getSnippetType(() => { getSnippetName(() => { getSnippetPrefix(() => { getSnippetDescription(() => { getSnippetBody(() => { addSnippetToFile(path) }) }) }) }) });
 }
 
-function addSnippetToFile() {
+function addSnippetToFile(cwdPath: string | null) {
     const path = getPath();
     if (!path) {
         return;
     } else {
-        const filePath = join(path, `${snippet["type"]}.json`);
+        let filePath = "";
+        if (cwdPath) {
+            // create the .vscode extension
+            let vscodeDir = resolve(cwdPath, ".vscode");
+            if (!existsSync(vscodeDir)) {
+                mkdirSync(vscodeDir);
+            }
+            filePath = resolve(vscodeDir, `${snippet["type"]}.code-snippets`);
+        } else {
+            filePath = join(path, `${snippet["type"]}.json`);
+        }
         if (!existsSync(filePath)) {
-            console.log(chalk.red(`Error : The path ${filePath} is not found`));
-            return;
+            writeFileSync(filePath, "{}");
         }
         // Read the json file
         let initSnippets = readJson(filePath);

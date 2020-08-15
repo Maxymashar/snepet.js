@@ -6,41 +6,31 @@ import { getPath } from "./commands/path";
 import { addSnippet } from "./commands/add";
 import { loadSnippetFile } from "./commands/get";
 import { deleteSnippet } from "./commands/delete";
+import { existsSync, statSync } from "fs";
 
 program
-    .version("2.0.5")
+    .version("2.1.0")
     .description("snepet is a cli tool for creating custom vscode snippets for all supported languages");
-
-// The path command is for setting the path to the snippets folder
-// program
-//     .command("path")
-//     .alias("p")
-//     .option("-s, --set <path-to-folder>", "sets the path to the snippets folder", (v, _) => v.trim().toLocaleLowerCase())
-//     .option("-g, --get", "gets the path for the snippets folder if set")
-//     .description("set and get the path to the vscode snippets folder")
-//     .action(({ set, get }) => {
-//         if (!set && !get) {
-//             console.log(chalk.red("Error : No option --get or --set is used"))
-//         } else if (set && get) {
-//             console.log(chalk.red("Error : Too many options --set and --get,only use one"));
-//         } else if (set) {
-//             setPath(set);
-//         } else {
-//             getPath();
-//         }
-//     });
 
 // The add command is for adding snippets
 program
     .command("add")
+    .option("-d, --directory <directory>", "Adds the snippet for only the directory", false)
     .alias("a")
     .description("adds a new snippet")
-    .action((_, b) => {
-        if (b) {
-            console.log(chalk.red(`Error : The options ${b} are not allowed`));
+    .action(({ directory }) => {
+        if (directory) {
+            if (!existsSync(directory)) {
+                console.log(chalk.red(`Error : The path ${directory} does not exist`));
+            }
+            if (!statSync(directory).isDirectory()) {
+                console.log(chalk.red(`Error : The path ${directory} is not a directory`));
+                return;
+            }
+            addSnippet(directory);
             return;
         }
-        addSnippet();
+        addSnippet(null);
     });
 
 // The get command is used for getting the snippets of a given file

@@ -12,7 +12,7 @@ snepet is a cli tool for creating custom snippets for vscode for any language or
 
 ## **❓ How to use**
 
-- **Step One 1️⃣ - Add new Snippet**
+- **1️⃣ - Add New Snippet**
 
   To add a new snippet run 👇
 
@@ -20,7 +20,7 @@ snepet is a cli tool for creating custom snippets for vscode for any language or
   snepet add
   ```
 
-- **Step Two 2️⃣ - Get all snippets**
+- **2️⃣ - Get All Snippets**
 
   To get all the custom snippets for a given type - _language_ run 👇
 
@@ -28,7 +28,7 @@ snepet is a cli tool for creating custom snippets for vscode for any language or
   snepet get --type <snippet-type>
   ```
 
-- **Step Three 3️⃣ - Delete a snepet**
+- **3️⃣ - Delete A Snippet**
 
   To delete a custom snippet, first run `snepet get` to get the snippets,then run 👇
 
@@ -36,11 +36,24 @@ snepet is a cli tool for creating custom snippets for vscode for any language or
   snepet delete --type <snippet-type> -id <snippet-id>
   ```
 
+- **4️⃣ - Add Project Scoped Snippet**
+
+  You can add a snippet for only a specific project 👇
+
+  ```bash
+  # Example
+  # If i wanted to add a snippet for a certain project run 👇
+  snepet add --directory root-of-project
+  #or
+  snepet add -d root-of-project
+  ```
+
 ## **Commands**
 
 | Command                                                         | Use                                                 |
 | --------------------------------------------------------------- | --------------------------------------------------- |
-| `snepet add`                                                    | Adds a new snippet                                  |
+| `snepet add`                                                    | Adds a new global snippet                           |
+| `snepet add --directory`                                        | Adds a new project scoped snippet                   |
 | `snepet get --type <snippet-type>`                              | Gets all the snippets for the type `<snippet-type>` |
 | `snepet delete --snippet-id <snippet-id> --type <snippet-type>` | Deletes the specified snippet                       |
 
