@@ -1,12 +1,12 @@
 {
   "name": "snepet",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A cli tool for creating custom code snippets for any language or file type for vscode",
   "main": "build/app.js",
   "dependencies": {
-    "comment-json": "^3.0.2",
-    "commander": "^6.0.0",
     "chalk": "^4.1.0",
+    "commander": "^6.0.0",
+    "comment-json": "^3.0.3",
     "inquirer": "^7.3.3"
   },
   "bin": {

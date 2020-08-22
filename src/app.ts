@@ -9,7 +9,7 @@ import { deleteSnippet } from "./commands/delete";
 import { existsSync, statSync } from "fs";
 
 program
-    .version("2.1.0")
+    .version("2.1.1")
     .description("snepet is a cli tool for creating custom vscode snippets for all supported languages");
 
 // The add command is for adding snippets
