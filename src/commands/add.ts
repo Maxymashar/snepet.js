@@ -77,35 +77,35 @@ async function getSnippetType(_next: () => void) {
 // Get the snippet name
 async function getSnippetName(_next: () => void) {
     const { _qSnippetName } = await prompt(questions["qSnippetName"]);
-    const _name = _qSnippetName.trim().toLowerCase();
+    const _name = _qSnippetName.trim();
     validate("name", _name, getSnippetName, _next);
 }
 
 // Get the snippet prefix
 async function getSnippetPrefix(_next: () => void) {
     const { _qSnippetPrefix } = await prompt(questions["qSnippetPrefix"]);
-    const _prefix = _qSnippetPrefix.trim().toLowerCase();
+    const _prefix = _qSnippetPrefix.trim();
     validate("prefix", _prefix, getSnippetPrefix, _next);
 }
 
 // Get the snippet body
 async function getSnippetBody(_next: () => void) {
     const { _qSnippetBody } = await prompt({ ...questions["qSnippetBody"], type: "editor" });
-    const _body = _qSnippetBody.trim().toLowerCase();
+    const _body = _qSnippetBody.trim();
     validate("body", _body, getSnippetBody, _next);
 }
 
 // Get the description
 async function getSnippetDescription(_next: () => void) {
     const { _qSnippetDescription } = await prompt({ ...questions["qSnippetDescription"], default: snippet["name"] });
-    const _description = _qSnippetDescription.trim().toLowerCase();
+    const _description = _qSnippetDescription.trim();
     validate("description", _description, getSnippetDescription, _next);
 }
 
 
 // Validate check if the propvalue is empty
 function validate(propName: "name" | "message" | "prefix" | "body" | "type" | "description", propValue: string, selfFunction: (_next: () => void) => void, nextFunction: () => void) {
-    propValue = propValue.trim().toLocaleLowerCase();
+    propValue = propValue.trim();
     if (propValue.length === 0) {
         console.log(chalk.red(`Error : ${propName} can't be empty`));
         selfFunction(nextFunction);
