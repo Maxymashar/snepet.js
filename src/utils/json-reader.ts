@@ -12,5 +12,6 @@ export function readJson(filepath: string) {
 
 // Function for writing to json files
 export function writeJson(filepath: string, data: {}) {
+    // console.log(data);
     writeFileSync(filepath, stringify(data));
 }

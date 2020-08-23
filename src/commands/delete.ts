@@ -23,7 +23,7 @@ export function deleteSnippet(snippetId: string, snippetType: string) {
     const keys = Object.keys(snippetData);
     const _keys = keys.filter((key) => snippetData[key]["id"] !== snippetId);
     const newSnippetsData = _keys.map((key) => snippetData[key]);
-    writeJson(snippetFilePath, newSnippetsData);
+    writeJson(snippetFilePath, { ...newSnippetsData });
 }
 
 function isTypeSupported(file: string) {
