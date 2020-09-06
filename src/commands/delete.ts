@@ -6,13 +6,18 @@ import { getPath } from "./path";
 import { existsSync } from "fs";
 
 export function deleteSnippet(snippetId: string, snippetType: string) {
+    const _path = getPath()
+    if (!existsSync(_path)) {
+        console.log(chalk.red(`Error : VisualStudioCode is not installed`));
+        return;
+    }
     if (!isTypeSupported(snippetType)) {
         console.log(chalk.red(`Error : The type ${snippetType} is not supported`));
         return;
     }
-    const snippetFilePath = join(getPath(), `${snippetType}.json`);
+    const snippetFilePath = join(_path, `${snippetType}.json`);
     if (!existsSync(snippetFilePath)) {
-        console.log(chalk.red(`Error : The path ${snippetFilePath} is not found`));
+        console.log(chalk.red(`No Snippets Found`));
         return;
     }
     let snippetData = readJson(snippetFilePath);
