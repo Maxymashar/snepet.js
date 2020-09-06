@@ -17,9 +17,15 @@ export function loadSnippetFile(type: string) {
 }
 
 function getSnippetFile(type: string) {
-    const snippetFilePath = join(getPath(), `${type}.json`);
+    const _path = getPath();
+    if (!existsSync(_path)) {
+        console.log(chalk.red(`Error : VisualStudioCode is not installed`));
+        return;
+    }
+
+    const snippetFilePath = join(_path, `${type}.json`);
     if (!existsSync(snippetFilePath)) {
-        console.log(chalk.red(`Error : The path ${snippetFilePath} is not found`));
+        console.log(chalk.red(`No Snippets Found`));
         return;
     }
     const snippets = readJson(snippetFilePath);
