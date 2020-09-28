@@ -39,6 +39,10 @@ export function addSnippet(path: string | null) {
 
 function addSnippetToFile(cwdPath: string | null) {
     const path = getPath();
+    if (!existsSync(path)) {
+        console.log(chalk.red(`Error : VisualStudioCode is not installed`));
+        return;
+    }
     if (!path) {
         return;
     } else {
