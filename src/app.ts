@@ -7,10 +7,13 @@ import { addSnippet } from "./commands/add";
 import { loadSnippetFile } from "./commands/get";
 import { deleteSnippet } from "./commands/delete";
 import { existsSync, statSync } from "fs";
+const conf = require("../package.json");
+ 
+// console.log("conf",conf);
 
 program
-    .version("2.2.0")
-    .description("snepet is a cli tool for creating custom vscode snippets for all supported languages");
+    .version(conf.version)
+    .description(conf.description);
 
 // The add command is for adding snippets
 program
